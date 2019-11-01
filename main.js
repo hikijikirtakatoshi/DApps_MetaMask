@@ -27,8 +27,8 @@ let counterAbi = [
 
 let counterSmartContractAddress = "0x530C96625B17cE527C2cb11d5202d289Ac651661";
 let myAccount;
-let counterContractInstance;
 let myContract;
+let counterContractInstance;
 
 function initApp() {
     try {
@@ -64,9 +64,8 @@ window.addEventListener('load', function () {
 
     if (typeof window.ethereum !== 'undefined' || typeof window.web3 !== "undefined") {
 
-        let provider = web3.currentProvider;
+        let provider = window['ethereum'] || window.web3.currentProvider;
         web3 = new Web3(provider);
-
         ethereum.enable();
 
     } else {
