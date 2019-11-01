@@ -26,28 +26,22 @@ let counterAbi = [
 ];
 
 let counterSmartContractAddress = "0x530C96625B17cE527C2cb11d5202d289Ac651661";
-let myAccount;
 let myContract;
 let counterContractInstance;
 
 function initApp() {
-    try {
-        myContract = web3.eth.contract(counterAbi);
-        counterContractInstance = myContract.at(counterSmartContractAddress);
-
-    } catch (err) {
-        console.log(err);
-    }
+    myContract = web3.eth.contract(counterAbi);
+    counterContractInstance = myContract.at(counterSmartContractAddress);
 }
 
 window.incrementNumber = () => {
-        counterContractInstance.increment(function(err, result) {
-            if(!err) {
-                console.log("ok", result);
-            } else {
-                console.log(err);
-            }
-        });
+    counterContractInstance.increment(function (err, result) {
+        if (!err) {
+            console.log("ok", result);
+        } else {
+            console.log(err);
+        }
+    });
 };
 
 window.getNumber = () => {
