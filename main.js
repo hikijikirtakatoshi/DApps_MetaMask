@@ -34,7 +34,6 @@ function initApp() {
     try {
         myContract = web3.eth.contract(counterAbi);
         counterContractInstance = myContract.at(counterSmartContractAddress);
-        // myAccount = web3.eth.accounts[0];
 
     } catch (err) {
         console.log(err);
@@ -61,14 +60,14 @@ window.getNumber = () => {
     });
 };
 
-window.addEventListener('load', async function () {
+window.addEventListener('load', function () {
 
     if (typeof window.ethereum !== 'undefined' || typeof window.web3 !== "undefined") {
 
         let provider = web3.currentProvider;
         web3 = new Web3(provider);
 
-        await provider.enable();
+        ethereum.enable();
 
     } else {
         console.log("Metamaskが認識されません");
